@@ -3,7 +3,7 @@
 #include <iostream>
 #include <string>
 #include <cctype>
-
+#include <cstring>
 
 unsigned int faStr1(const char* str) {
     unsigned int result = 0; bool word = false, number = false;
