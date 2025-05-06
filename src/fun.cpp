@@ -15,7 +15,7 @@ unsigned int faStr1(const char* str) {
             word = true;
             if (isdigit(str[i])) number = true;
         }
-        if ((str[i] == ' ' && word == true) 
+        if ((str[i] == ' ' && word == true)
             || (str[i] == '\0' && word == true)) {
             word = false;
             if (number == false) result++;
@@ -36,7 +36,7 @@ unsigned int faStr2(const char* str) {
         if (isupper(str[i]) && word == false) {
             word = true;
         }
-        if ((str[i] == ' ' && word == true) 
+        if ((str[i] == ' ' && word == true)
             || (str[i] == '\0' && word == true)) {
             word = false;
             if (letter == false) result++;
@@ -57,8 +57,8 @@ unsigned int faStr3(const char* str) {
         if (str[i] != ' ' && word == true) {
             length++;
         }
-        if ((str[i] == ' ' && word == true) 
-            || (str[i] == '\0' && word == true)){
+        if ((str[i] == ' ' && word == true)
+            || (str[i] == '\0' && word == true)) {
             word = false;
             count_word++;
             result += length;
