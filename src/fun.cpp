@@ -5,25 +5,20 @@
 #include <cctype>
 
 
-unsigned int faStr1(const char* str) 
-{
+unsigned int faStr1(const char* str) {
     unsigned int result = 0; bool word = false, number = false;
-    for (int i = 0; str[i] != '\0'; i++)
-    {
+    for (int i = 0; str[i] != '\0'; i++) {
 
-        if (str[i] != ' ' && word == true)
-        {
+        if (str[i] != ' ' && word == true) {
             if (isdigit(str[i])) number = true;
         }
 
-        if (str[i] != ' ' && word == false)
-        {
+        if (str[i] != ' ' && word == false) {
             word = true;
             if (isdigit(str[i])) number = true;
         }
 
-        if ((str[i] == ' ' && word == true) || (str[i] == '\0' && word == true))
-        {
+        if ((str[i] == ' ' && word == true) || (str[i] == '\0' && word == true)) {
             word = false;
             if (number == false) result++;
             number = false;
@@ -37,21 +32,17 @@ unsigned int faStr1(const char* str)
 unsigned int faStr2(const char* str) {
     unsigned int result = 0; bool word = false, letter = false;
 
-    for (int i = 0; str[i] != '\0'; i++)
-    {
+    for (int i = 0; str[i] != '\0'; i++) {
 
-        if (str[i] != ' ' && word == true)
-        {
+        if (str[i] != ' ' && word == true) {
             if (!isdigit(str[i])) letter = true;
         }
 
-        if (isupper(str[i]) && word == false)
-        {
+        if (isupper(str[i]) && word == false) {
             word = true;
         }
 
-        if ((str[i] == ' ' && word == true) || (str[i] == '\0' && word == true))
-        {
+        if ((str[i] == ' ' && word == true) || (str[i] == '\0' && word == true)) {
             word = false;
             if (letter == false) result++;
             letter = false;
@@ -66,21 +57,17 @@ unsigned int faStr2(const char* str) {
 unsigned int faStr3(const char* str) {
     unsigned int result = 0, length = 0, count_word = 0; bool word = false;
 
-    for (int i = 0; str[i] != '\0'; i++)
-    {
+    for (int i = 0; str[i] != '\0'; i++) {
 
-        if (str[i] != ' ' && word == false)
-        {
+        if (str[i] != ' ' && word == false) {
             word = true;
         }
 
-        if (str[i] != ' ' && word == true)
-        {
+        if (str[i] != ' ' && word == true) {
             length++;
         }
 
-        if ((str[i] == ' ' && word == true) || (str[i] == '\0' && word == true))
-        {
+        if ((str[i] == ' ' && word == true) || (str[i] == '\0' && word == true)) {
             word = false;
             count_word++;
             result += length;
