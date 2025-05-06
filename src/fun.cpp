@@ -25,27 +25,27 @@ unsigned int faStr1(const char* str) {
     return result;
 }
 
-
 unsigned int faStr2(const char* str) {
     unsigned int result = 0; bool word = false, letter = false;
 
     for (int i = 0; str[i] != '\0'; i++) {
         if (str[i] != ' ' && word == true) {
             if (!isdigit(str[i])) letter = true;
+            else letter = false;
         }
         if (isupper(str[i]) && word == false) {
             word = true;
+            letter = !isdigit(str[i]);
         }
         if ((str[i] == ' ' && word == true)
             || (str[i] == '\0' && word == true)) {
             word = false;
-            if (letter == false) result++;
+            if (letter == true) result++;
             letter = false;
         }
     }
     return result;
 }
-
 
 unsigned int faStr3(const char* str) {
     unsigned int result = 0, length = 0, count_word = 0; bool word = false;
