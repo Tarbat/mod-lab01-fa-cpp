@@ -30,11 +30,10 @@ unsigned int faStr2(const char* str) {
 
     for (int i = 0; str[i] != '\0'; i++) {
         if (str[i] != ' ' && word == true) {
-            if (!isdigit(str[i]) || !isalpha(str[i])) letter = true;
+            if (!isdigit(str[i]) || isalpha(str[i])) letter = true;
         }
         if (isupper(str[i]) && word == false) {
             word = true;
-            letter = !isdigit(str[i]);
         }
         if ((str[i] == ' ' && word == true)
             || (str[i] == '\0' && word == true)) {
@@ -65,6 +64,5 @@ unsigned int faStr3(const char* str) {
             length = 0;
         }
     }
-    if (count_word == 0) count_word = 1;
     return (result / count_word);
 }
