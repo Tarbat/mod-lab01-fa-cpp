@@ -30,13 +30,14 @@ unsigned int faStr2(const char* str) {
 
     for (int i = 0; str[i] != '\0'; i++) {
         if (str[i] != ' ' && word == true) {
-            if (!isdigit(str[i]) || ispunct(str[i])) letter = true;
+            if (!isdigit(str[i]) && !ispunct(str[i])) letter = true;
         }
         if (isupper(str[i]) && word == false) {
             word = true;
+            letter = !isdigit(str[i]) && !ispunct(str[i]);
         }
         if ((str[i] == ' ' && word == true)
-            || (i == strlen(str) && word == true)) {
+            || (str[i + 1] == '\0' && word == true)) {
             word = false;
             if (letter == true) result++;
             letter = false;
@@ -57,7 +58,7 @@ unsigned int faStr3(const char* str) {
             length++;
         }
         if ((str[i] == ' ' && word == true)
-            || (i == strlen(str) && word == true)) {
+            || (str[i + 1] == '\0' && word == true)) {
             word = false;
             count_word++;
             result += length;
