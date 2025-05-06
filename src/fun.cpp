@@ -32,8 +32,7 @@ unsigned int faStr2(const char* str) {
         if (str[i] != ' ' && word == true) {
             if (!isdigit(str[i]) && !ispunct(str[i])) {
                 letter = true;
-            }
-            else {
+            } else {
                 letter = false;
             }
         }
